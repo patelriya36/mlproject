@@ -45,8 +45,8 @@ class DataTransformation:
             cat_pipeline=Pipeline(
                 steps=[
                     ("imputer",SimpleImputer(strategy="most_frequent")),
-                    ("one_hot_encoder",OneHotEncoder()),
-                    ("scaler",StandardScaler())
+                    ("one_hot_encoder",OneHotEncoder(sparse_output=True)),
+                    ("scaler",StandardScaler(with_mean=False))
                 ]
             )
             logging.info("Numerical columns standard scaling completed")
